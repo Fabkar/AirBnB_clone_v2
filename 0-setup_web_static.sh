@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # Configure a web server
+
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install -y nginx
-sudo mkdir -p /data/web_static/releases/test/
+sudo mkdir -p /data/web_static/{releases/test,shared}
 sudo mkdir -p /data/web_static/shared/
 sudo echo "Nginx Configuration" | tee /data/web_static/releases/test/index.html
 sudo ln -s -f /data/web_static/releases/test/ /data/web_static/current
