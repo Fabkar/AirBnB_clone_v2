@@ -18,7 +18,6 @@ def do_deploy(archive_path):
 
     try:
         put(archive_path, "/tmp/".format(file_))
-        run("sudo rm -rf /data_releases/{}".format(name))
         run("sudo mkdir -p /data_releases/{}".format(name))
         run("sudo tar -xzf /tmp/{} -C /data_releases/{}/".format(file_, name))
         run("sudo rm /tmp/{}".format(file_))
