@@ -12,12 +12,13 @@ def do_deploy(archive_path):
     """Distributes an archive to a web server"""
     if not exists(archive_path):
         return False
+
     data_releases = "data/web_static/releases"
     file_ = archive_path.split("/")[-1]
     name = file_.split(".")[0]
 
     try:
-        put(archive_path, "/tmp/".format(file_))
+        put(archive_path, "/tmp/")
         run("sudo mkdir -p /data_releases/{}".format(name))
         run("sudo tar -xzf /tmp/{} -C /data_releases/{}/".format(file_, name))
         run("sudo rm /tmp/{}".format(file_))
