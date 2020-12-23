@@ -4,6 +4,7 @@ from fabric.api import local
 from datetime import datetime
 from time import strftime
 
+
 def do_pack():
     """Return the archive path if the archive has been correctly generated
     """
