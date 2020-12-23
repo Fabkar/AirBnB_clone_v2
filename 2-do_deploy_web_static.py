@@ -2,6 +2,7 @@
 """Fabric script (based on the file 1-pack_web_static.py)
 that distributes an archive to your web servers, using do_deploy"""
 from os.path import exists
+import os
 from fabric.api import env, put, run
 
 env.user = "ubuntu"
@@ -10,7 +11,7 @@ env.hosts = ["35.196.29.78", "35.231.126.72"]
 
 def do_deploy(archive_path):
     """Distributes an archive to a web server"""
-    if not exists(archive_path):
+    if not os.path.exists(archive_path):
         return False
 
     data_releases = "data/web_static/releases"
