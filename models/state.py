@@ -14,7 +14,7 @@ class State(BaseModel, Base):
     name = Column(String(128), nullable=False)
     cities = relationship(
         "City", backref="state", cascade="all, delete-orphan")
-    if getenv("HBNB_TYPE_STORAGE") == "file":
+    if getenv("HBNB_TYPE_STORAGE") != "db":
         @property
         def cities(self):
             """ Get a list of all related City current states"""
