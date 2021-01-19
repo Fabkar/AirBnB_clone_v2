@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Start a flask app"""
-from flask import Flask, render_template
+from flask import Flask
+from flask import render_template
 from models import storage
 from models.state import State
 
@@ -15,8 +16,8 @@ def cities_by_states():
 
 
 @app.teardown_appcontext
-def close_storage(exception):
-    """ remove the current SQLAlchemy session"""
+def close_storage():
+    """ close the current SQLAlchemy session"""
     storage.close()
 
 
