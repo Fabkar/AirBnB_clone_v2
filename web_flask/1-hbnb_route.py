@@ -13,7 +13,7 @@ def first_greeting():
 @app.route('/hbnb', strict_slashes=False)
 def hbnb_message():
     """Function that return message depend of route"""
-    return 'HBNB!'
+    return 'HBNB'
 
 
 if __name__ == '__main__':
